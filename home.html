@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<div>
+    <br><br>
+    <img src="{% static 'images/categories.png' %}" alt="Welcome Image" style="width: 300px; height: auto; position:relative;left:10px;">
+</div>
+
+<a href="{% url 'myapp:category_list' %}" style="width: 300px;" class="btn btn-primary">Categories</a>
+{% endblock content %}
