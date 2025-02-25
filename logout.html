@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout Successful</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .logout-container {
+            text-align: center;
+            background: #fff;
+            padding: 2rem 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logout-container h1 {
+            color: #4caf50;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .logout-container p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        .logout-container a {
+            text-decoration: none;
+            background: #4facfe;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+        .logout-container a:hover {
+            background: #00aaff;
+        }
+    </style>
+</head>
+<body>
+    <div class="logout-container">
+        <h1>Logout Successful</h1>
+        <p>You have been logged out. We hope to see you again soon!</p>
+        <a href="{% url 'myapp:home' %}">Login Again</a>
+    </div>
+</body>
+</html>
