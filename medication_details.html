@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <div class="container mt-5">
+        <h1 class="text-center" style="border: rgb(163, 42, 165);">{{ medication.name }}</h1>
+        <div class="row mt-4">
+    
+            <div class="col-md-6">
+                <h3>Details</h3>
+                <p><strong>Price:</strong> ₹{{ medication.price }}</p>
+                <p><strong>Uses:</strong> {{ medication.uses }}</p>
+                <p><strong>Composition:</strong> {{ medication.composition }}</p>
+                <p><strong>Mechanism of Action:</strong> {{ medication.mechanism_of_action }}</p>
+                <p><strong>Contraindications:</strong> {{ medication.contraindications }}</p>
+                <p><strong>Side Effects:</strong> {{ medication.side_effects }}</p>
+                <p><strong>Usage Instructions:</strong> {{ medication.usage_instructions }}</p>
+                <a href="{% url 'myapp:medication_list' medication.category.id %}" class="btn btn-secondary mt-3">Back to Medications</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
