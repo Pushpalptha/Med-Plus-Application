@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    {% if cart and cart.items.exists %}
+        <h1 style="color: red;">Your Cart</h1>
+        <ul>
+            {% for item in cart.items.all %}
+                <li>
+                    {{ item.product.name }} - Quantity: {{ item.quantity }}
+                </li>
+            {% endfor %}
+        </ul>
+        <p><strong>Total Items: {{ total_quantity }}</strong></p>
+
+        <!-- My Orders Button -->
+        <div class="mt-3">
+            <a href="{% url 'myapp:order_list' %}" class="btn btn-info btn-sm">
+                My Orders
+            </a>
+        </div>
+    {% else %}
+        <p>Your cart is empty</p>
+        <a href="{% url 'myapp:home' %}" class="btn btn-primary">Go Shopping</a>
+    {% endif %}
+</div>
+{% endblock content %}
