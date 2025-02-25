@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .order-card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .order-card h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .order-card p {
+            margin: 5px 0;
+        }
+        .view-order-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .view-order-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Orders</h1>
+
+    {% if orders %}
+        {% for order in orders %}
+            <div class="order-card">
+                <h2>Order ID: {{ order.id }}</h2>
+                <p>Status: {{ order.status }}</p>
+                <p>Total Price: ${{ order.total_price }}</p>
+                <a href="{% url 'order_detail' order.id %}" class="view-order-btn">View Order Details</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>You have no orders.</p>
+    {% endif %}
+</body>
+</html>
