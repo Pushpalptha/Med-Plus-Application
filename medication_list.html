@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">{{ category.name }} - Products</h2>
+    <div class="row">
+        {% for medication in medications %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <img src="{{ medication.image.url }}" class="card" alt="" style="width: 60px; height: 60px;">
+                    <!-- Medication Name -->
+                    <h5 class="card-title text-primary">{{ medication.name }}</h5>
+                
+                    <!-- Price -->
+                    <p class="card-text">
+                        <strong>Price:500</strong> ${{ medication.price }}
+                    </p>
+                    
+                    <!-- Description -->
+                    <p class="card-text text-muted">
+                        {{ medication.description|truncatewords:12 }}
+                    </p>
+                    
+                    <!-- Action Buttons -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{% url 'myapp:medication_detail' medication.id %}" class="btn btn-outline-primary btn-sm">
+                            View Details
+                        </a>
+                        <a href="{% url 'myapp:add_to_cart' medication.id %}" class="btn btn-success btn-sm">
+                            Add to Cart
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center">
+            <p>No products found in this category.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
